@@ -13,7 +13,7 @@ conn_sql = pymssql.connect(server=os.getenv('SQL_SERVER'), port=os.getenv('SQL_P
 cursor = conn_sql.cursor()
 
 # Consulta SQL con la opción FOR JSON AUTO
-query = "SELECT * FROM Recursos FOR JSON AUTO"
+query = os.getenv('SQL_QUERY') + " FOR JSON AUTO"
 cursor.execute(query)
 result = cursor.fetchall()
 
